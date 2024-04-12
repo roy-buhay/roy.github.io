@@ -1,10 +1,15 @@
 ---
+import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 
-import Layout from "@layout/Layout.astro";
 import Icon from "@components/Icon.astro";
 import Screens from "@components/Screens.astro";
 import Screen from "@components/Screen.astro";
+
+type Screenshot = {
+    path: string;
+    class: string;
+};
 
 interface Props {
     path: string;
@@ -13,25 +18,32 @@ interface Props {
     width: number;
     roles: string[];
     technologies: string[];
-    screenshots: string[];
+    screenshots: Screenshot[];
 }
 const { path, title, desc, width, roles, technologies, screenshots } =
     Astro.props as Props;
-const { default: logo } = await import(`/src/assets/images/${title}/${path}`);
+
+const imgs = import.meta.glob<{ default: ImageMetadata }>(
+    "../../src/assets/images/*.{jpeg,jpg,png,svg}",
+);
 ---
 
 <div class="page">
     <button class="back"> Back </button>
     <div class="page__content">
-        <Image
-            src={logo}
-            alt={title}
-            loading="lazy"
-            decoding="async"
-            draggable="false"
-            class="page__logo"
-            style={{ width: `${width}rem` }}
-        />
+        {
+            imgs && imgs[`../assets/images/${path}`] && (
+                <Image
+                    src={imgs[`../assets/images/${path}`]()}
+                    alt={title}
+                    loading="lazy"
+                    decoding="async"
+                    draggable="false"
+                    class="page__logo"
+                    style={{ width: `${width}rem` }}
+                />
+            )
+        }
         <p class="page__description">{desc}</p>
         <div class="page__icons">
             {roles.map((role) => <p>{role}</p>)}
@@ -41,7 +53,7 @@ const { default: logo } = await import(`/src/assets/images/${title}/${path}`);
         </div>
     </div>
 
-    <Screens slot="images" index="10">
+    <Screens slot="images" index={10}>
         {
             screenshots.map((screen) => (
                 <Screen
@@ -143,7 +155,7 @@ const { default: logo } = await import(`/src/assets/images/${title}/${path}`);
         margin-bottom: 0.5rem;
     }
     .page__description {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
     .page__icons {
         display: -webkit-box;

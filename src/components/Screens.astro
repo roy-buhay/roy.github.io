@@ -1,4 +1,8 @@
 ---
+export interface Props {
+    index: number;
+}
+
 const { index } = Astro.props as Props;
 ---
 
@@ -14,17 +18,21 @@ const { index } = Astro.props as Props;
     .index {
         z-index: 10;
     }
+    @media screen and (max-width: 750px) {
+        .splide__list {
+            justify-content: center;
+            margin-left: -2.5rem !important;
+        }
+    }
 </style>
 
 <script
     src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"
 ></script>
-
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         var sliders = document.getElementsByClassName("splide");
-
-        for (var i = 0; i < sliders.length; i++) {
+        for (let i = 0; i < sliders.length; i++) {
             new Splide(sliders[i], {
                 type: "slide",
                 arrows: false,
@@ -35,11 +43,3 @@ const { index } = Astro.props as Props;
     });
 </script>
 
-<style>
-    @media screen and (max-width: 750px) {
-        .splide__list {
-            justify-content: center;
-            margin-left: -2.5rem !important;
-        }
-    }
-</style>

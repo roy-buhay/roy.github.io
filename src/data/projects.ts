@@ -3,34 +3,34 @@ export const projects = [
     title: "zeiton",
     desc: "Zeiton is a reward scoring unit that allows people who are enthusiastic to serve the society to receive substantial rewards, thereby promoting everyone to participate in social construction activities.",
     width: 8,
-    pageWidth: 10,
+    pageWidth: 9,
     path: "zeiton-logo.svg",
     roles: ["front-end", "back-end", "UI designer/developer"],
     technologies: ["ionic", "angular", "typescript", "sass", "sketch"],
-    screens: ["messages.webp", "task.webp", "home.webp"],
+    screens: ["zeiton-messages.png", "zeiton-task.png", "zeiton-home.png"],
     screenshots: [
       {
-        path: "login.jpg",
+        path: "zeiton-login.jpg",
         class: "mobile",
       },
       {
-        path: "home.webp",
+        path: "zeiton-home.webp",
         class: "mobile",
       },
       {
-        path: "messages.webp",
+        path: "zeiton-messages.webp",
         class: "mobile",
       },
       {
-        path: "task.webp",
+        path: "zeiton-task.webp",
         class: "mobile",
       },
       {
-        path: "map.jpg",
+        path: "zeiton-map.jpg",
         class: "mobile",
       },
       {
-        path: "details.png",
+        path: "zeiton-details.png",
         class: "mobile",
       },
     ],
@@ -39,11 +39,11 @@ export const projects = [
     title: "avazoo",
     desc: "Avazoo allows users to use local and national chains to receive additional entries by posting in social media platforms information about the causes important to organizations and the raffle.",
     width: 5,
-    pageWidth: 6,
+    pageWidth: 5,
     path: "avazoo-logo.png",
     roles: ["front-end", "back-end", "UI designer/developer"],
     technologies: [
-      "ReactNative",
+      "reactnative",
       "expo",
       "typescript",
       "laravel",
@@ -51,26 +51,26 @@ export const projects = [
       "tailwind",
       "figma",
     ],
-    screens: ["shares2.jpg", "popup2.jpg", "home2.jpg"],
+    screens: ["avazoo-shares2.jpg", "avazoo-popup2.jpg", "avazoo-home2.jpg"],
     screenshots: [
       {
-        path: "home2.jpg",
+        path: "avazoo-home2.jpg",
         class: "mobile",
       },
       {
-        path: "popup2.jpg",
+        path: "avazoo-popup2.jpg",
         class: "mobile",
       },
       {
-        path: "shares2.jpg",
+        path: "avazoo-shares2.jpg",
         class: "mobile",
       },
       {
-        path: "profile2.jpg",
+        path: "avazoo-profile2.jpg",
         class: "mobile",
       },
       {
-        path: "reward2.jpg",
+        path: "avazoo-reward2.jpg",
         class: "mobile",
       },
     ],
@@ -79,7 +79,7 @@ export const projects = [
     title: "matchit",
     desc: "Zeiton is a reward scoring unit that allows people who are enthusiastic to serve the society to receive substantial rewards, thereby promoting everyone to participate in social construction activities.",
     width: 5,
-    pageWidth: 6,
+    pageWidth: 5,
     path: "avazoo-logo.png",
     roles: ["front-end", "back-end", "UI designer/developer"],
     technologies: [
@@ -90,26 +90,26 @@ export const projects = [
       "tailwind",
       "figma",
     ],
-    screens: ["2.jpg", "5-2.jpg", "1-2.jpg"],
+    screens: ["matchit-selection.jpg", "matchit-info.jpg", "matchit-board.jpg"],
     screenshots: [
       {
-        path: "1-2.jpg",
+        path: "matchit-board.jpg",
         class: "mobile",
       },
       {
-        path: "2.jpg",
+        path: "matchit-info.jpg",
         class: "mobile",
       },
       {
-        path: "3.jpg",
+        path: "matchit-patterns.jpg",
         class: "mobile",
       },
       {
-        path: "4.jpg",
+        path: "matchit-selection.jpg",
         class: "mobile",
       },
       {
-        path: "5-2.jpg",
+        path: "matchit-home.jpg",
         class: "mobile",
       },
     ],
@@ -118,34 +118,34 @@ export const projects = [
     title: "crateclub",
     desc: "Zeiton is a reward scoring unit that allows people who are enthusiastic to serve the society to receive substantial rewards, thereby promoting everyone to participate in social construction activities.",
     width: 10,
-    pageWidth: 12,
+    pageWidth: 11,
     path: "crateclub-logo.svg",
     roles: ["front-end", "back-end", "UI designer/developer"],
     technologies: ["laravel", "sass", "javascript", "mysql", "figma", "stripe"],
-    screens: ["details.jpg", "subs.jpg", "home.jpg"],
+    screens: ["crateclub-details.jpg", "crateclub-subs.jpg", "crateclub-home.jpg"],
     screenshots: [
       {
-        path: "login2.jpg",
+        path: "crateclub-login2.jpg",
         class: "mobile",
       },
       {
-        path: "home.jpg",
+        path: "crateclub-home.jpg",
         class: "mobile",
       },
       {
-        path: "subs.jpg",
+        path: "crateclub-subs.jpg",
         class: "mobile",
       },
       {
-        path: "store.jpg",
+        path: "crateclub-store.jpg",
         class: "mobile",
       },
       {
-        path: "details.jpg",
+        path: "crateclub-details.jpg",
         class: "mobile",
       },
       {
-        path: "storedetails.jpg",
+        path: "crateclub-storedetails.jpg",
         class: "mobile",
       },
     ],
@@ -154,7 +154,7 @@ export const projects = [
     title: "crypto",
     desc: "Zeiton is a reward scoring unit that allows people who are enthusiastic to serve the society to receive substantial rewards, thereby promoting everyone to participate in social construction activities.",
     width: 13,
-    pageWidth: 15,
+    pageWidth: 14,
     path: "crypto-logo2.svg",
     roles: ["front-end", "back-end", "UI designer/developer"],
     technologies: [
@@ -166,22 +166,22 @@ export const projects = [
       "tailwind",
       "figma",
     ],
-    screens: ["home.jpg", "mobile2.jpg", "mobile1.jpg"],
+    screens: ["crypto-home.jpg", "crypto-mobile2.jpg", "crypto-mobile1.jpg"],
     screenshots: [
       {
-        path: "home-desktop.jpg",
+        path: "crypto-home-desktop.jpg",
         class: "desktop",
       },
       {
-        path: "home-bottom.jpg",
+        path: "crypto-home-bottom.jpg",
         class: "desktop",
       },
       {
-        path: "mobile1.jpg",
+        path: "crypto-mobile2.jpg",
         class: "mobile",
       },
       {
-        path: "mobile2.jpg",
+        path: "crypto-mobile1.jpg",
         class: "mobile",
       },
     ],

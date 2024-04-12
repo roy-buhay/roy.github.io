@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "astro": "^3.3.3",
-    "nanostores": "^0.10.0"
+    "nanostores": "^0.10.0",
+    "sharp": "^0.33.3"
   },
   "devDependencies": {
     "prettier": "^3.2.5",

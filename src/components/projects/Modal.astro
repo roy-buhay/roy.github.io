@@ -1,5 +1,4 @@
 ---
-import { $page } from "@store/store";
 import { projects } from "@data/projects";
 
 import Container from "@components/Container.astro";
@@ -8,13 +7,20 @@ import Screen from "@components/Screen.astro";
 import Texts from "@components/Text.astro";
 import Page from "@components/Page.astro";
 
+type Screenshot = {
+    path: string;
+    class: string;
+};
 interface Project {
     title: string;
     desc: string;
     width: number;
     path: string;
-    screens: string[];
+    screens: any[];
     technologies: string[];
+    pageWidth: number;
+    roles: string[];
+    screenshots: Screenshot[];
 }
 ---
 
@@ -24,38 +30,34 @@ interface Project {
     <div class="projects">
         {
             projects.map((project: Project) => (
-                    <div class="projects__content">
-                        <Container>
-                             <Screens slot="images" index="1">
-                                {project.screens.map((screen) => (
-                                    <Screen
-                                        path={screen}
-                                        name={project.title}
-                                    />
-                                ))}
-                            </Screens>
-                            <Texts
-                                slot="texts"
-                                path={project.path}
-                                alt={project.title}
-                                link={`/projects/${project.title}`}
-                                desc={project.desc}
-                                title={project.title}
-                                width={project.width}
-                                technologies={project.technologies}
-                            />
-                        </Container>
-                        <Page
+                <div class="projects__content">
+                    <Container>
+                        <Screens slot="images" index={1}>
+                            {project.screens.map((screen) => (
+                                <Screen path={screen} name={project.title} />
+                            ))}
+                        </Screens>
+                        <Texts
+                            slot="texts"
                             path={project.path}
-                            title={project.title}
+                            alt={project.title}
+                            link={`/projects/${project.title}`}
                             desc={project.desc}
-                            width={project.pageWidth}
-                            roles={project.roles}
+                            title={project.title}
+                            width={project.width}
                             technologies={project.technologies}
-                            screenshots={project.screenshots}
                         />
-                    </div>
-                </>
+                    </Container>
+                    <Page
+                        path={project.path}
+                        title={project.title}
+                        desc={project.desc}
+                        width={project.pageWidth}
+                        roles={project.roles}
+                        technologies={project.technologies}
+                        screenshots={project.screenshots}
+                    />
+                </div>
             ))
         }
     </div>
@@ -73,50 +75,53 @@ interface Project {
         top: 0;
         z-index: 10;
         -webkit-transform: translateX(100%);
-            -ms-transform: translateX(100%);
-                transform: translateX(100%);
-        -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+        -ms-transform: translateX(100%);
+        transform: translateX(100%);
+        -webkit-transition: -webkit-transform 0.4s
+            cubic-bezier(0.76, 0, 0.24, 1);
         transition: -webkit-transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
         -o-transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
         transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
-        transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1), -webkit-transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+        transition:
+            transform 0.4s cubic-bezier(0.76, 0, 0.24, 1),
+            -webkit-transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
         will-change: transform;
         background-color: #07355f;
     }
     .projects {
         height: 100%;
         -webkit-box-flex: 1;
-            -ms-flex: 1;
-                flex: 1;
+        -ms-flex: 1;
+        flex: 1;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
         -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
         -webkit-box-pack: start;
-            -ms-flex-pack: start;
-                justify-content: start;
+        -ms-flex-pack: start;
+        justify-content: start;
         gap: 7rem;
         overflow: auto;
         padding: 4rem 0;
     }
     .projects__content {
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: normal;
-                -ms-flex-direction: column;
-                    flex-direction: column;
-            -webkit-box-align: center;
-                -ms-flex-align: center;
-                    align-items: center;
-        }
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
     @media screen and (max-width: 900px) {
         .projects {
             gap: 9rem;
@@ -142,44 +147,43 @@ interface Project {
     }
 </style>
 
-
 <script>
-  const loader = document.querySelector(".loader");
-  const back = document.querySelectorAll(".back");
-  const pages = document.querySelectorAll(".page");
-  const links = document.querySelectorAll(".text_link");
+    const loader = document.querySelector(".loader");
+    const back = document.querySelectorAll(".back");
+    const pages = document.querySelectorAll(".page");
+    const links = document.querySelectorAll(".text_link");
 
-  back.forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-          const parent = e.target.parentElement;
-          const pageModal = parent.children[1];
+    back.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            const parent = e.target?.parentElement;
+            const pageModal = parent.children[1];
 
-          loader.style.transform = "translateX(0)";
+            loader.style.transform = "translateX(0)";
 
-          if (parent.classList.contains("details")) {
-              parent.classList.remove("details");
-          }
+            if (parent.classList.contains("details")) {
+                parent.classList.remove("details");
+            }
 
-          setTimeout(() => {
-              loader.style.transform = "translateX(100%)";
-          }, 900);
-      });
-  });
+            setTimeout(() => {
+                loader.style.transform = "translateX(100%)";
+            }, 900);
+        });
+    });
 
-  links.forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-          const parent =
-              e.target.parentElement.parentElement.parentElement
-                  .parentElement;
-          const pageModal = parent.children[1];
+    links.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            const parent =
+                e.target?.parentElement.parentElement.parentElement
+                    .parentElement;
+            const pageModal = parent.children[1];
 
-          loader.style.transform = "translateX(0)";
+            loader.style.transform = "translateX(0)";
 
-          pageModal.classList.add("details");
+            pageModal.classList.add("details");
 
-          setTimeout(() => {
-              loader.style.transform = "translateX(-100%)";
-          }, 1000);
-      });
-  });
+            setTimeout(() => {
+                loader.style.transform = "translateX(-100%)";
+            }, 1000);
+        });
+    });
 </script>
