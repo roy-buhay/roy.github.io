@@ -34,7 +34,7 @@ const { index } = Astro.props as Props;
         var sliders = document.getElementsByClassName("splide");
         for (let i = 0; i < sliders.length; i++) {
             new Splide(sliders[i], {
-                type: "slide",
+                // type: "slide",
                 arrows: false,
                 pagination: false,
                 autoWidth: true,
@@ -42,4 +42,3 @@ const { index } = Astro.props as Props;
         }
     });
 </script>
-
