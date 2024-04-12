@@ -30,40 +30,41 @@ const imgs = import.meta.glob<{ default: ImageMetadata }>(
 
 <div class="page">
     <button class="back"> Back </button>
-    <div class="page__content">
-        {
-            imgs && imgs[`../assets/images/${path}`] && (
-                <Image
-                    src={imgs[`../assets/images/${path}`]()}
-                    alt={title}
-                    loading="lazy"
-                    decoding="async"
-                    draggable="false"
-                    class="page__logo"
-                    style={{ width: `${width}rem` }}
-                />
-            )
-        }
-        <p class="page__description">{desc}</p>
-        <div class="page__icons">
-            {roles.map((role) => <p>{role}</p>)}
+    <div>
+        <div class="page__content">
+            {
+                imgs && imgs[`../assets/images/${path}`] && (
+                    <Image
+                        src={imgs[`../assets/images/${path}`]()}
+                        alt={title}
+                        loading="lazy"
+                        decoding="async"
+                        draggable="false"
+                        class="page__logo"
+                        style={{ width: `${width}rem` }}
+                    />
+                )
+            }
+            <p class="page__description">{desc}</p>
+            <div class="page__icons">
+                {roles.map((role) => <p>{role}</p>)}
+            </div>
+            <div class="page__icons">
+                {technologies.map((tech) => <Icon icon={`${tech}`} />)}
+            </div>
         </div>
-        <div class="page__icons">
-            {technologies.map((tech) => <Icon icon={`${tech}`} />)}
-        </div>
+        <Screens slot="images" index={10}>
+            {
+                screenshots.map((screen) => (
+                    <Screen
+                        path={screen.path}
+                        name={title}
+                        customClass={screen.class}
+                    />
+                ))
+            }
+        </Screens>
     </div>
-
-    <Screens slot="images" index={10}>
-        {
-            screenshots.map((screen) => (
-                <Screen
-                    path={screen.path}
-                    name={title}
-                    customClass={screen.class}
-                />
-            ))
-        }
-    </Screens>
 </div>
 
 <style>
@@ -93,9 +94,7 @@ const imgs = import.meta.glob<{ default: ImageMetadata }>(
         max-width: var(--max-width);
         border-radius: 0.7rem;
         position: relative;
-        padding-bottom: 4rem;
-        overflow-x: hidden;
-        overflow-y: auto;
+        overflow: hidden;
 
         position: absolute;
         right: 0;
@@ -114,6 +113,12 @@ const imgs = import.meta.glob<{ default: ImageMetadata }>(
         -webkit-transition-delay: 0.4s;
         -o-transition-delay: 0.4s;
         transition-delay: 0.4s;
+    }
+    .page > div {
+        overflow-y: auto;
+        height: 100%;
+        width: 100%;
+        padding-bottom: 4rem;
     }
     .page:after {
         content: "";

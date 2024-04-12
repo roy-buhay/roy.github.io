@@ -92,6 +92,7 @@ import ProjectsModal from "../components/projects/Modal.astro";
 </style>
 
 <script>
+    const body = document.getElementsByTagName("body")[0];
     const main = document.getElementById("main");
     const modals = document.querySelectorAll(".modal");
     const aboutCard = document.querySelector("[data-about-card]");
@@ -105,6 +106,7 @@ import ProjectsModal from "../components/projects/Modal.astro";
             modals.forEach((modal) => {
                 modal.classList.remove("show");
             });
+            body.style.overflow = "auto";
             if (main) main.classList.remove("scale-down");
         });
     });
@@ -115,6 +117,7 @@ import ProjectsModal from "../components/projects/Modal.astro";
             if (aboutModal) {
                 aboutModal.style.display = "flex";
                 aboutModal.classList.add("show");
+                body.style.overflow = "hidden";
             }
         });
     }
@@ -125,6 +128,7 @@ import ProjectsModal from "../components/projects/Modal.astro";
             if (projectsModal) {
                 projectsModal.style.display = "flex";
                 projectsModal.classList.add("show");
+                body.style.overflow = "hidden";
             }
         });
     }
