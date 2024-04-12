@@ -351,6 +351,8 @@ import Illustration from "@components/about/Illustration.astro";
         }
         .modal {
             top: 4%;
+            height: 98%;
+            padding-bottom: 3rem;
         }
         .modal > div {
             overflow-x: hidden;
@@ -362,6 +364,14 @@ import Illustration from "@components/about/Illustration.astro";
             -webkit-box-direction: normal;
             -ms-flex-direction: column;
             flex-direction: column;
+        }
+        .modal:after {
+            background: radial-gradient(
+                    circle at 20% 0%,
+                    rgba(0, 0, 0, 0),
+                    #000
+                ),
+                url(/src/assets/images/noise.svg);
         }
     }
 
