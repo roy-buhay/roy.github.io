@@ -408,10 +408,39 @@ const { title } = Astro.props;
             }
 
             /****************/
-            /*  Slider  */
+            /*  Misc  */
             /****************/
             .projects__container .splide {
                 pointer-events: none !important;
+            }
+            .card__content .about-illustration {
+                width: 92% !important;
+                transform: scale(0.68) !important;
+                left: 4rem;
+                top: -1rem;
+            }
+            .card__content .man {
+                bottom: 1rem !important;
+                left: -1rem !important;
+            }
+            .card__content .truck {
+                display: none !important;
+            }
+            .card__content .tech {
+                top: 130px !important;
+                left: -110px !important;
+            }
+            .card__content .deers > span:first-of-type {
+                bottom: 2rem !important;
+                left: 9rem !important;
+            }
+            @media screen and (max-width: 900px) {
+                .card__content .about-illustration {
+                    width: 105% !important;
+                    transform: scale(0.63) !important;
+                    left: 1.3rem;
+                    top: -2.5rem;
+                }
             }
 
             /****************/
