@@ -110,11 +110,13 @@ const imgs = import.meta.glob<{ default: ImageMetadata }>(
             width: 100%;
             text-align: center;
         }
-        .text_link,
-        .text_icons {
+        .text_link {
             -webkit-box-pack: center;
             -ms-flex-pack: center;
             justify-content: center;
+        }
+        .text_icons {
+            display: none;
         }
     }
 </style>
