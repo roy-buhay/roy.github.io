@@ -5,6 +5,7 @@ export const projects = [
     width: 8,
     pageWidth: 9,
     path: "zeiton-logo.svg",
+    url: "https://www.zeiton.com/",
     roles: ["front-end", "back-end", "UI designer/developer"],
     technologies: ["ionic", "angular", "typescript", "sass", "sketch"],
     screens: ["zeiton-messages.png", "zeiton-task.png", "zeiton-home.png"],
@@ -38,7 +39,7 @@ export const projects = [
   {
     title: "avazoo",
     desc: "Avazoo allows users to use local and national chains to receive additional entries by posting in social media platforms information about the causes important to organizations and the raffle.",
-    width: 5,
+    width: 4,
     pageWidth: 5,
     path: "avazoo-logo.png",
     roles: ["front-end", "back-end", "UI designer/developer"],
@@ -78,7 +79,7 @@ export const projects = [
   {
     title: "matchit",
     desc: "Zeiton is a reward scoring unit that allows people who are enthusiastic to serve the society to receive substantial rewards, thereby promoting everyone to participate in social construction activities.",
-    width: 5,
+    width: 4,
     pageWidth: 5,
     path: "avazoo-logo.png",
     roles: ["front-end", "back-end", "UI designer/developer"],
@@ -116,7 +117,7 @@ export const projects = [
   },
   {
     title: "crateclub",
-    desc: "Zeiton is a reward scoring unit that allows people who are enthusiastic to serve the society to receive substantial rewards, thereby promoting everyone to participate in social construction activities.",
+    desc: "America’s #1 Gear Club. Your go-to for Outdoor, Survival, EDC and all Military Grade Gear. ",
     width: 10,
     pageWidth: 11,
     path: "crateclub-logo.svg",
@@ -152,7 +153,7 @@ export const projects = [
   },
   {
     title: "crypto",
-    desc: "Zeiton is a reward scoring unit that allows people who are enthusiastic to serve the society to receive substantial rewards, thereby promoting everyone to participate in social construction activities.",
+    desc: "An NFT Marketplace dApp with basic functionalities such as acquire and mint NFTs using ERC721 Smart Contract and Interplanetary File System IPFS. ",
     width: 13,
     pageWidth: 14,
     path: "crypto-logo2.svg",

@@ -33,7 +33,7 @@ const imgs = import.meta.glob<{ default: ImageMetadata }>(
                 />
             )
         }
-        <Image src={newTab} alt="Open in new tab" />
+        <span class="newtab">&#8599;</span>
     </a>
     <p class="text_description">{desc}</p>
     <div class="text_icons">
@@ -42,6 +42,11 @@ const imgs = import.meta.glob<{ default: ImageMetadata }>(
 </div>
 
 <style>
+    .newtab {
+        color: #507593;
+        display: inline-block;
+        transition: margin 0.15s ease-out;
+    }
     .text {
         padding-left: 5rem;
         padding-right: 2rem;
@@ -58,7 +63,13 @@ const imgs = import.meta.glob<{ default: ImageMetadata }>(
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
+        text-decoration: none;
         gap: 0.3rem;
+    }
+    .text_link:hover .newtab {
+        margin-top: -8px;
+        margin-left: 6px;
+        color: #88b5e6;
     }
     .text_link > img:active {
         -webkit-transform: scale(0.95);

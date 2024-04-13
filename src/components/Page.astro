@@ -123,7 +123,7 @@ const imgs = import.meta.glob<{ default: ImageMetadata }>(
     .page:after {
         content: "";
         position: absolute;
-        z-index: 0;
+        z-index: -1;
         top: 0;
         left: 0;
         width: 100%;
@@ -152,6 +152,8 @@ const imgs = import.meta.glob<{ default: ImageMetadata }>(
         margin: 6rem auto 3rem auto;
         width: 90%;
         max-width: var(--max-width);
+        position: relative;
+        z-index: 2;
     }
     .page__logo {
         height: auto;
@@ -161,6 +163,7 @@ const imgs = import.meta.glob<{ default: ImageMetadata }>(
     }
     .page__description {
         font-size: 0.8rem;
+        max-width: 70%;
     }
     .page__icons {
         display: -webkit-box;
@@ -180,17 +183,15 @@ const imgs = import.meta.glob<{ default: ImageMetadata }>(
         row-gap: 0.8rem;
         margin: 1.5rem 0 0;
     }
-    @media screen and (max-width: 900px) {
-        .page__content {
-            position: relative;
-            z-index: 2;
-        }
-    }
+
     @media screen and (max-width: 750px) {
         .page__icons {
             -webkit-box-pack: center;
             -ms-flex-pack: center;
             justify-content: center;
+        }
+        .page__description {
+            max-width: 100%;
         }
     }
 </style>

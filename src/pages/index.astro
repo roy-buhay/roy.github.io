@@ -60,21 +60,26 @@ import ProjectsModal from "../components/projects/Modal.astro";
 
     .animate {
         transition-property: opacity, transform;
-        transition-duration: 1s;
-        transition-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        transition-duration: 0.8s;
+        transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
+
+        transform: translateY(80%);
         opacity: 0;
     }
 
     .slide-up {
-        animation-name: cardSlideUp;
-        animation-duration: 0.8s;
-        animation-fill-mode: both;
+        /* animation-name: cardSlideUp;
+        animation-duration: 1s;
+        animation-fill-mode: both; */
+
+        opacity: 1;
+        transform: translateY(0);
     }
 
     @keyframes cardSlideUp {
         from {
-            opacity: 0;
-            transform: translateY(15%);
+            opacity: 0.3;
+            transform: translateY(20%);
         }
 
         to {
@@ -135,9 +140,9 @@ import ProjectsModal from "../components/projects/Modal.astro";
 
     document.addEventListener("DOMContentLoaded", function () {
         const wrapper = document.getElementById("main");
-        setTimeout(() => {
-            wrapper.classList.remove("hidden");
-        }, 600);
+        // setTimeout(() => {
+        wrapper.classList.remove("hidden");
+        // }, 600);
 
         const elements = document.querySelectorAll(".animate");
         let delay = 0;

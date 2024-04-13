@@ -9,7 +9,8 @@
         </p>
         <div class="panel__container panel__animated">
             <div class="animate">
-                <div class="float">
+                <!-- class="float" -->
+                <div>
                     <div class="panel">
                         <div class="panel__header">
                             <span class="button"></span>
@@ -221,7 +222,7 @@
         .main__card {
             grid-row: 1 / -1;
             overflow: hidden;
-            padding: 3rem 2.5rem;
+            padding: 2rem 2.5rem;
             position: relative;
         }
         .main__card:after {
@@ -518,8 +519,8 @@
             -ms-flex-pack: start;
             justify-content: flex-start;
             position: absolute;
-            top: 60px;
-            left: -15px;
+            top: 61px;
+            left: 5px;
             z-index: 2;
         }
         .mini__card-wrapper2 {
@@ -715,8 +716,8 @@
 
         .mini__icon-wrapper {
             position: absolute;
-            top: -45px;
-            right: 270px;
+            top: -70px;
+            right: 280px;
             z-index: 2;
         }
 
@@ -1080,13 +1081,16 @@
 
         @media screen and (max-width: 1320px) {
             .panel {
-                width: 420px;
+                width: 450px;
             }
             .panel__container {
                 width: 580px;
             }
             .panel__content {
                 height: 17rem;
+            }
+            .panel__right {
+                padding: 1.8rem 1.5rem 1rem 2.3rem;
             }
             .panel__right span {
                 top: -38px;
