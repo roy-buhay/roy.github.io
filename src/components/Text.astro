@@ -10,11 +10,12 @@ export interface Props {
     desc: string;
     title: string;
     width: number;
-    url: string;
+    url?: string;
     technologies: string[];
+    roles: string[];
 }
 
-const { path, alt, link, desc, title, width, technologies, url } =
+const { path, alt, link, desc, title, width, technologies, url, roles } =
     Astro.props as Props;
 const { default: image } = await import(`/src/assets/images/${title}/${path}`);
 ---
@@ -29,8 +30,18 @@ const { default: image } = await import(`/src/assets/images/${title}/${path}`);
         <Image src={newTab} alt="Open in new tab" />
     </a>
     <p class="text_description">{desc}</p>
-    <div class="text_icons">
-        {technologies.map((tech) => <Icon icon={`${tech}`} />)}
+
+    <div class="text_content">
+        <div class="text_icons">
+            {technologies.map((tech) => <Icon icon={`${tech}`} />)}
+        </div>
+
+        <br />
+
+        <p>Roles:</p>
+        <div class="text_roles">
+            {roles.map((role) => <p>{role}</p>)}
+        </div>
     </div>
 </div>
 
@@ -41,7 +52,7 @@ const { default: image } = await import(`/src/assets/images/${title}/${path}`);
         width: 80%;
     }
     .text_description {
-        font-size: 0.75rem;
+        font-size: 0.85rem;
         margin: 1.5rem 0 0;
     }
     .text_link {
@@ -79,6 +90,15 @@ const { default: image } = await import(`/src/assets/images/${title}/${path}`);
         row-gap: 0.8rem;
         margin: 1.5rem 0 0;
     }
+    .text_roles {
+        display: flex;
+        align-items: center;
+        column-gap: 1rem;
+    }
+    .text_roles p {
+        text-transform: capitalize;
+        margin-top: 0.2rem;
+    }
 
     @media screen and (max-width: 1000px) {
         .text {
@@ -87,6 +107,9 @@ const { default: image } = await import(`/src/assets/images/${title}/${path}`);
     }
 
     @media screen and (max-width: 750px) {
+        .text_content {
+            display: none;
+        }
         .text {
             -ms-grid-column: 1;
             -ms-grid-column-span: 1;
@@ -102,6 +125,10 @@ const { default: image } = await import(`/src/assets/images/${title}/${path}`);
         .text_description {
             width: 100%;
             text-align: center;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
         }
         .text_link,
         .text_icons {

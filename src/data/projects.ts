@@ -2,6 +2,8 @@ export const projects = [
   {
     title: "zeiton",
     desc: "Zeiton is a reward scoring unit that allows people who are enthusiastic to serve the society to receive substantial rewards, thereby promoting everyone to participate in social construction activities.",
+    url: 'https://zeiton.page.link/app',
+    urlText: 'https://www.zeiton.com/',
     width: 8,
     pageWidth: 10,
     path: "zeiton-logo.svg",
@@ -38,6 +40,8 @@ export const projects = [
   {
     title: "avazoo",
     desc: "Avazoo allows users to use local and national chains to receive additional entries by posting in social media platforms information about the causes important to organizations and the raffle.",
+    url: 'https://zeiton.page.link/app',
+    urlText: 'https://www.zeiton.com/',
     width: 5,
     pageWidth: 6,
     path: "avazoo-logo.png",
@@ -78,6 +82,8 @@ export const projects = [
   {
     title: "matchit",
     desc: "Zeiton is a reward scoring unit that allows people who are enthusiastic to serve the society to receive substantial rewards, thereby promoting everyone to participate in social construction activities.",
+    url: 'https://zeiton.page.link/app',
+    urlText: 'https://www.zeiton.com/',
     width: 5,
     pageWidth: 6,
     path: "avazoo-logo.png",
@@ -117,6 +123,8 @@ export const projects = [
   {
     title: "crateclub",
     desc: "Zeiton is a reward scoring unit that allows people who are enthusiastic to serve the society to receive substantial rewards, thereby promoting everyone to participate in social construction activities.",
+    url: 'https://zeiton.page.link/app',
+    urlText: 'https://www.zeiton.com/',
     width: 10,
     pageWidth: 12,
     path: "crateclub-logo.svg",
@@ -151,8 +159,66 @@ export const projects = [
     ],
   },
   {
+    title: "rrs",
+    desc: "Zeiton is a reward scoring unit that allows people who are enthusiastic to serve the society to receive substantial rewards, thereby promoting everyone to participate in social construction activities.",
+    url: 'https://zeiton.page.link/app',
+    urlText: 'https://www.zeiton.com/',
+    width: 7,
+    pageWidth: 8,
+    path: "rrs-logo.png",
+    roles: ["front-end", "back-end", "UI designer/developer"],
+    technologies: [
+      "nextjs",
+      "typescript",
+      "supabase",
+      "tailwind",
+      "figma",
+    ],
+    screens: ["nfl-team-popup3.png", "nfl3.png", "home3.png"],
+    screenshots: [
+      {
+        path: "login3.png",
+        class: "mobile",
+      },
+      {
+        path: "home3.png",
+        class: "mobile",
+      },
+      {
+        path: "nfl3.png",
+        class: "mobile",
+      },
+      {
+        path: "nfl-team-popup3.png",
+        class: "mobile",
+      },
+      {
+        path: "nfl-popup3.png",
+        class: "mobile",
+      },
+      {
+        path: "rewarded3.png",
+        class: "mobile",
+      },
+      {
+        path: "rewarded-map3.png",
+        class: "mobile",
+      },
+      {
+        path: "home-banner3.png",
+        class: "mobile",
+      },
+      {
+        path: "banner3.png",
+        class: "mobile",
+      },
+    ],
+  },
+  {
     title: "crypto",
     desc: "Zeiton is a reward scoring unit that allows people who are enthusiastic to serve the society to receive substantial rewards, thereby promoting everyone to participate in social construction activities.",
+    url: 'https://zeiton.page.link/app',
+    urlText: 'https://www.zeiton.com/',
     width: 13,
     pageWidth: 15,
     path: "crypto-logo2.svg",

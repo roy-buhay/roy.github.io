@@ -1,57 +1,24 @@
----
-import { Image } from "astro:assets";
-
-import Layout from "@layout/Layout.astro";
-import Icon from "@components/Icon.astro";
-import Screens from "@components/Screens.astro";
-import Screen from "@components/Screen.astro";
-
-interface Props {
-    path: string;
-    title: string;
-    desc: string;
-    width: number;
-    roles: string[];
-    technologies: string[];
-    screenshots: string[];
-}
-const { path, title, desc, width, roles, technologies, screenshots } =
-    Astro.props as Props;
-const { default: logo } = await import(`/src/assets/images/${title}/${path}`);
----
-
-<div class="page">
+<div id="details" class="page">
     <button class="back"> Back </button>
     <div class="page__content">
-        <Image
-            src={logo}
-            alt={title}
+        <img
+            src=""
+            alt=""
             loading="lazy"
             decoding="async"
             draggable="false"
             class="page__logo"
-            style={{ width: `${width}rem` }}
         />
-        <p class="page__description">{desc}</p>
-        <div class="page__icons">
-            {roles.map((role) => <p>{role}</p>)}
-        </div>
-        <div class="page__icons">
-            {technologies.map((tech) => <Icon icon={`${tech}`} />)}
+        <p class="page__description"></p>
+        <a href="#" class="page__url" target="_blank"></a>
+        <div class="page__icons page__techs"></div>
+        <div class="page__icons page__roles"></div>
+    </div>
+    <div class="splide">
+        <div class="splide__track">
+            <ul class="splide__list"></ul>
         </div>
     </div>
-
-    <Screens slot="images" index="10">
-        {
-            screenshots.map((screen) => (
-                <Screen
-                    path={screen.path}
-                    name={title}
-                    customClass={screen.class}
-                />
-            ))
-        }
-    </Screens>
 </div>
 
 <style>
@@ -74,6 +41,10 @@ const { default: logo } = await import(`/src/assets/images/${title}/${path}`);
         transform: scale(0.95);
     }
 
+    .splide {
+        z-index: 10;
+    }
+
     .page {
         background-color: var(--secondary-color);
         width: 100%;
@@ -85,9 +56,8 @@ const { default: logo } = await import(`/src/assets/images/${title}/${path}`);
         overflow-x: hidden;
         overflow-y: auto;
 
-        position: absolute;
-        right: 0;
-        top: 0;
+        position: fixed;
+        inset: 0;
         z-index: 9;
         -webkit-transform: translateX(100%);
         -ms-transform: translateX(100%);
@@ -135,6 +105,8 @@ const { default: logo } = await import(`/src/assets/images/${title}/${path}`);
         margin: 6rem auto 3rem auto;
         width: 90%;
         max-width: var(--max-width);
+        position: relative;
+        z-index: 2;
     }
     .page__logo {
         height: auto;
@@ -143,7 +115,15 @@ const { default: logo } = await import(`/src/assets/images/${title}/${path}`);
         margin-bottom: 0.5rem;
     }
     .page__description {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+    }
+    .page__url {
+        display: block;
+        margin-top: 0.8rem;
+        margin-bottom: 1rem;
+        font: var(--description);
+        color: #b2c2d6;
+        font-size: 0.8rem;
     }
     .page__icons {
         display: -webkit-box;
@@ -163,6 +143,13 @@ const { default: logo } = await import(`/src/assets/images/${title}/${path}`);
         row-gap: 0.8rem;
         margin: 1.5rem 0 0;
     }
+    .page__roles {
+        margin-top: 3rem;
+    }
+    .page__roles p {
+        text-transform: capitalize;
+        margin-top: 0.5rem;
+    }
 
     @media screen and (max-width: 750px) {
         .page__icons {
@@ -172,3 +159,118 @@ const { default: logo } = await import(`/src/assets/images/${title}/${path}`);
         }
     }
 </style>
+
+<script
+    src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"
+></script>
+
+<script>
+    import { projects } from "../data/projects";
+
+    const details = document.getElementById("details");
+    if (details) {
+        const checkHash = () => {
+            const hash =
+                details.dataset.hash || details.getAttribute("data-hash");
+
+            let desc = document.querySelector(".page__description"),
+                logo = document.querySelector(".page__logo"),
+                roles = document.querySelector(".page__roles"),
+                techs = document.querySelector(".page__techs"),
+                splides = document.querySelector(".splide__list"),
+                url = document.querySelector(".page__url");
+
+            const project = projects.find((project) => project.title === hash);
+
+            if (desc && logo && roles && techs && splides && url && project) {
+                roles.innerHTML = "";
+                techs.innerHTML = "";
+                splides.innerHTML = "";
+
+                desc.textContent = project.desc;
+
+                url.setAttribute("href", project.url);
+                url.textContent = project.urlText;
+
+                logo.setAttribute(
+                    "src",
+                    `/src/assets/images/${project.title}/${project.path}`,
+                );
+                (logo as HTMLElement).style.width = `${project.pageWidth}rem`;
+
+                project.roles.map((role) => {
+                    const p = document.createElement("p");
+                    p.textContent = role;
+                    roles.appendChild(p);
+                });
+
+                project.technologies.map(async (tech) => {
+                    const res = await fetch(`/src/assets/svg/${tech}.svg`);
+                    const svgText = await res.text();
+
+                    const span = document.createElement("span");
+                    span.classList.add("icon__container");
+
+                    const icon = document.createElement("span");
+                    icon.classList.add("icon");
+                    icon.innerHTML = svgText;
+
+                    const label = document.createElement("span");
+                    label.classList.add("icon__label");
+                    label.textContent = tech;
+
+                    span.appendChild(icon);
+                    span.appendChild(label);
+
+                    techs.appendChild(span);
+                });
+
+                project.screenshots.map((screen) => {
+                    const li = document.createElement("li");
+                    li.classList.add("splide__slide");
+                    li.classList.add(screen.class);
+
+                    const img = document.createElement("img");
+                    img.setAttribute(
+                        "src",
+                        `/src/assets/images/${project.title}/${project.title}-${screen.path}`,
+                    );
+
+                    li.appendChild(img);
+                    splides.appendChild(li);
+                });
+
+                const sliders = document.getElementsByClassName("splide");
+
+                if (sliders) {
+                    for (var i = 0; i < sliders.length; i++) {
+                        new Splide(sliders[i], {
+                            type: "slide",
+                            arrows: false,
+                            pagination: false,
+                            autoWidth: true,
+                        }).mount();
+                    }
+                }
+            }
+        };
+
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (
+                    mutation.type === "attributes" &&
+                    mutation.attributeName === "data-hash"
+                ) {
+                    checkHash();
+                }
+            });
+        });
+
+        observer.observe(details, {
+            attributes: true,
+            attributeFilter: ["data-hash"],
+        });
+
+        checkHash();
+    }
+</script>

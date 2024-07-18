@@ -1,15 +1,15 @@
 ---
 import { Image } from "astro:assets";
-import about from "@assets/images/about-mini3.png";
+import Illustration from "@components/about/Illustration.astro";
 ---
 
 <div data-about-card class="animate card">
     <div class="card__content">
         <h3 class="animate">About Me</h3>
         <p class="animate">A bit of background and what I'm studying</p>
-        <span>
-            <Image src={about} alt="About Me" class="animate card__img" />
-        </span>
+        <div class="animate card__img">
+            <Illustration />
+        </div>
     </div>
 </div>
 

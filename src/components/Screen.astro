@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 interface Props {
     path: string;
     name: string;
-    customClass: string;
+    customClass?: string;
 }
 const { path, name, customClass } = Astro.props as Props;
 const { default: image } = await import(
@@ -54,6 +54,10 @@ const handleLoad = () => {
         transition: margin 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28);
         background-color: #062f54;
     }
+    .splide__slide.dark {
+        -webkit-box-shadow: -0.3rem 0 1.5rem -0.6rem rgb(27 24 28);
+        box-shadow: -0.3rem 0 1.5rem -0.6rem rgb(27 24 28);
+    }
     .splide__slide img {
         opacity: 0;
         display: block;
@@ -84,6 +88,9 @@ const handleLoad = () => {
         }
         .splide__slide.mobile {
             width: 15rem;
+        }
+        .splide__slide.desktop {
+            width: 33rem;
         }
     }
     @media screen and (max-width: 600px) {
