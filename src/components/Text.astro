@@ -17,7 +17,9 @@ export interface Props {
 
 const { path, alt, link, desc, title, width, technologies, url, roles } =
     Astro.props as Props;
-const { default: image } = await import(`/src/assets/images/${title}/${path}`);
+const { default: image } = await import(
+    `../../../src/assets/images/${title}/${path}`
+);
 ---
 
 <div class="text">

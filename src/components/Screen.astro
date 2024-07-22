@@ -8,7 +8,7 @@ interface Props {
 }
 const { path, name, customClass } = Astro.props as Props;
 const { default: image } = await import(
-    `/src/assets/images/${name}/${name}-${path}`
+    `../../../src/assets/images/${name}/${name}-${path}`
 );
 
 let loaded: boolean = false;

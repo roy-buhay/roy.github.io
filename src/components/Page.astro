@@ -194,7 +194,7 @@
 
                 logo.setAttribute(
                     "src",
-                    `/src/assets/images/${project.title}/${project.path}`,
+                    `../../../src/assets/images/${project.path}`,
                 );
                 (logo as HTMLElement).style.width = `${project.pageWidth}rem`;
 
@@ -233,7 +233,7 @@
                     const img = document.createElement("img");
                     img.setAttribute(
                         "src",
-                        `/src/assets/images/${project.title}/${project.title}-${screen.path}`,
+                        `../../../src/assets/images/${project.title}/${project.title}-${screen.path}`,
                     );
 
                     li.appendChild(img);
