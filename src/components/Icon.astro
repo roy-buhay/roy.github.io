@@ -7,7 +7,7 @@ export interface Props {
 }
 
 const { icon, showLabel = true } = Astro.props as Props;
-const { default: rawIcon } = await import(`/src/assets/svg/${icon}.svg?raw`);
+const { default: rawIcon } = await import(`../../src/assets/svg/${icon}.svg?raw`);
 ---
 
 <div class="icon__container">
@@ -24,7 +24,6 @@ const { default: rawIcon } = await import(`/src/assets/svg/${icon}.svg?raw`);
         align-items: center;
         gap: 0.3rem;
         color: var(--svg-fill);
-        /* fill: var(--svg-fill); */
     }
     .icon {
         width: 1.3rem;

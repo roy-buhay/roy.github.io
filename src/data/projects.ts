@@ -6,33 +6,33 @@ export const projects = [
     urlText: "https://www.zeiton.com/",
     width: 8,
     pageWidth: 10,
-    path: "zeiton-logo.svg",
+    path: "zeiton-logo",
     roles: ["front-end", "back-end", "UI designer/developer"],
     technologies: ["ionic", "angular", "typescript", "sass", "sketch"],
-    screens: ["messages.webp", "task.webp", "home.webp"],
+    screens: ["zeiton-messages", "zeiton-task", "zeiton-home"],
     screenshots: [
       {
-        path: "login.jpg",
+        path: "zeiton-login",
         class: "mobile",
       },
       {
-        path: "home.webp",
+        path: "zeiton-home",
         class: "mobile",
       },
       {
-        path: "messages.webp",
+        path: "zeiton-messages",
         class: "mobile",
       },
       {
-        path: "task.webp",
+        path: "zeiton-task",
         class: "mobile",
       },
       {
-        path: "map.jpg",
+        path: "zeiton-map",
         class: "mobile",
       },
       {
-        path: "details.png",
+        path: "zeiton-details",
         class: "mobile",
       },
     ],
@@ -44,7 +44,7 @@ export const projects = [
     urlText: "https://www.zeiton.com/",
     width: 5,
     pageWidth: 6,
-    path: "avazoo-logo.png",
+    path: "avazoo-logo",
     roles: ["front-end", "back-end", "UI designer/developer"],
     technologies: [
       "ReactNative",
@@ -55,26 +55,26 @@ export const projects = [
       "tailwind",
       "figma",
     ],
-    screens: ["shares2.jpg", "popup2.jpg", "home2.jpg"],
+    screens: ["avazoo-shares2", "avazoo-popup2", "avazoo-home2"],
     screenshots: [
       {
-        path: "home2.jpg",
+        path: "avazoo-home2",
         class: "mobile",
       },
       {
-        path: "popup2.jpg",
+        path: "avazoo-popup2",
         class: "mobile",
       },
       {
-        path: "shares2.jpg",
+        path: "avazoo-shares2",
         class: "mobile",
       },
       {
-        path: "profile2.jpg",
+        path: "avazoo-profile2",
         class: "mobile",
       },
       {
-        path: "reward2.jpg",
+        path: "avazoo-reward2",
         class: "mobile",
       },
     ],
@@ -86,7 +86,7 @@ export const projects = [
     urlText: "https://www.zeiton.com/",
     width: 5,
     pageWidth: 6,
-    path: "avazoo-logo.png",
+    path: "avazoo-logo",
     roles: ["front-end", "back-end", "UI designer/developer"],
     technologies: [
       "react",
@@ -96,26 +96,26 @@ export const projects = [
       "tailwind",
       "figma",
     ],
-    screens: ["2.jpg", "5-2.jpg", "1-2.jpg"],
+    screens: ["matchit-2", "matchit-5-2", "matchit-1-2"],
     screenshots: [
       {
-        path: "1-2.jpg",
+        path: "matchit-1-2",
         class: "mobile",
       },
       {
-        path: "2.jpg",
+        path: "matchit-2",
         class: "mobile",
       },
       {
-        path: "3.jpg",
+        path: "matchit-3",
         class: "mobile",
       },
       {
-        path: "4.jpg",
+        path: "matchit-4",
         class: "mobile",
       },
       {
-        path: "5-2.jpg",
+        path: "matchit-5-2",
         class: "mobile",
       },
     ],
@@ -127,33 +127,33 @@ export const projects = [
     urlText: "https://www.zeiton.com/",
     width: 10,
     pageWidth: 12,
-    path: "crateclub-logo.svg",
+    path: "crateclub-logo",
     roles: ["front-end", "back-end", "UI designer/developer"],
     technologies: ["laravel", "sass", "javascript", "mysql", "figma", "stripe"],
-    screens: ["details.jpg", "subs.jpg", "home.jpg"],
+    screens: ["crateclub-details", "crateclub-subs", "crateclub-home"],
     screenshots: [
       {
-        path: "login2.jpg",
+        path: "crateclub-login2",
         class: "mobile",
       },
       {
-        path: "home.jpg",
+        path: "crateclub-home",
         class: "mobile",
       },
       {
-        path: "subs.jpg",
+        path: "crateclub-subs",
         class: "mobile",
       },
       {
-        path: "store.jpg",
+        path: "crateclub-store",
         class: "mobile",
       },
       {
-        path: "details.jpg",
+        path: "crateclub-details",
         class: "mobile",
       },
       {
-        path: "storedetails.jpg",
+        path: "crateclub-storedetails",
         class: "mobile",
       },
     ],
@@ -165,45 +165,45 @@ export const projects = [
     urlText: "https://www.zeiton.com/",
     width: 7,
     pageWidth: 8,
-    path: "rrs-logo.png",
+    path: "rrs-logo",
     roles: ["front-end", "back-end", "UI designer/developer"],
     technologies: ["nextjs", "typescript", "supabase", "tailwind", "figma"],
-    screens: ["nfl-team-popup3.png", "nfl3.png", "home3.png"],
+    screens: ["rrs-nfl-team-popup3", "rrs-nfl3", "rrs-home3"],
     screenshots: [
       // {
       //   path: "login3.png",
       //   class: "mobile",
       // },
       {
-        path: "home3.png",
+        path: "rrs-home3",
         class: "mobile",
       },
       {
-        path: "home-banner3.png",
+        path: "rrs-home-banner3",
         class: "mobile",
       },
       {
-        path: "banner3.png",
+        path: "rrs-banner3",
         class: "mobile",
       },
       {
-        path: "nfl3.png",
+        path: "rrs-nfl3",
         class: "mobile",
       },
       {
-        path: "nfl-team-popup3.png",
+        path: "rrs-nfl-team-popup3",
         class: "mobile",
       },
       {
-        path: "nfl-popup3.png",
+        path: "rrs-nfl-popup3",
         class: "mobile",
       },
       {
-        path: "rewarded3.png",
+        path: "rrs-rewarded3",
         class: "mobile",
       },
       {
-        path: "rewarded-map3.png",
+        path: "rrs-rewarded-map3",
         class: "mobile",
       },
     ],
@@ -215,7 +215,7 @@ export const projects = [
     urlText: "https://www.zeiton.com/",
     width: 13,
     pageWidth: 15,
-    path: "crypto-logo2.svg",
+    path: "crypto-logo2",
     roles: ["front-end", "back-end", "UI designer/developer"],
     technologies: [
       "nextjs",
@@ -226,22 +226,22 @@ export const projects = [
       "tailwind",
       "figma",
     ],
-    screens: ["home.jpg", "mobile2.jpg", "mobile1.jpg"],
+    screens: ["crypto-home", "crypto-mobile2", "crypto-mobile1"],
     screenshots: [
       {
-        path: "home-desktop.jpg",
+        path: "crypto-home-desktop",
         class: "desktop",
       },
       {
-        path: "home-bottom.jpg",
+        path: "crypto-home-bottom",
         class: "desktop",
       },
       {
-        path: "mobile1.jpg",
+        path: "crypto-mobile1",
         class: "mobile",
       },
       {
-        path: "mobile2.jpg",
+        path: "crypto-mobile2",
         class: "mobile",
       },
     ],

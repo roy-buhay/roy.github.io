@@ -1,32 +1,22 @@
 ---
-import { Image } from "astro:assets";
+import { loadImage } from "@utils/index.ts"
 
 interface Props {
     path: string;
-    name: string;
+    title: string;
     customClass?: string;
 }
-const { path, name, customClass } = Astro.props as Props;
-const { default: image } = await import(
-    `../../../src/assets/images/${name}/${name}-${path}`
-);
-
-let loaded: boolean = false;
-const handleLoad = () => {
-    loaded = true;
-};
+const { path, title, customClass } = Astro.props as Props;
+const imageUrl = loadImage(title, path, 'jpg');
 ---
 
 <li class={`splide__slide ${customClass}`}>
-    <Image
-        src={image}
-        alt={name}
-        onLoad={handleLoad()}
+    <img
+        src={imageUrl}
+        alt={title}
         loading="lazy"
         decoding="async"
-        style={{ opacity: loaded ? "1" : "0" }}
     />
-    {loaded ? null : <div class="loader">Loading...</div>}
 </li>
 
 <style>
@@ -59,7 +49,6 @@ const handleLoad = () => {
         box-shadow: -0.3rem 0 1.5rem -0.6rem rgb(27 24 28);
     }
     .splide__slide img {
-        opacity: 0;
         display: block;
         height: auto;
         width: 100%;

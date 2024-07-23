@@ -1,5 +1,7 @@
 ---
 import { Image } from "astro:assets";
+import { loadImage } from "@utils/index.ts"
+
 import newTab from "@assets/images/newTab.svg";
 import Icon from "@components/Icon.astro";
 
@@ -17,25 +19,26 @@ export interface Props {
 
 const { path, alt, link, desc, title, width, technologies, url, roles } =
     Astro.props as Props;
-const { default: image } = await import(
-    `../../../src/assets/images/${title}/${path}`
-);
+
+const imageUrl = loadImage(title, path, 'png');
 ---
 
 <div class="text">
     <a href={`#${title}`} class="text_link" data-title={title}>
-        <Image
-            src={image}
+       {imageUrl && (
+        <img
+            src={imageUrl}
             alt={alt}
             style={{ width: `${width}rem; height: auto` }}
         />
+       )}
         <Image src={newTab} alt="Open in new tab" />
     </a>
     <p class="text_description">{desc}</p>
 
     <div class="text_content">
         <div class="text_icons">
-            {technologies.map((tech) => <Icon icon={`${tech}`} />)}
+            {technologies.map((tech) => <Icon icon={`${tech.toLowerCase()}`} />)}
         </div>
 
         <br />

@@ -1,5 +1,4 @@
 ---
-import { $page } from "@store/store";
 import { projects } from "@data/projects";
 
 import Container from "@components/Container.astro";
@@ -35,7 +34,7 @@ interface Project {
                             {project.screens.map((screen) => (
                                 <Screen
                                     path={screen}
-                                    name={project.title}
+                                    title={project.title}
                                     customClass={project.dark ? "dark" : ""}
                                 />
                             ))}

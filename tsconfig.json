@@ -1,6 +1,7 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "module": "ESNext",
     "baseUrl": ".",
     "paths": {
       "@layout/*": ["src/layouts/*"],
@@ -8,7 +9,10 @@
       "@assets/*": ["src/assets/*"],
       "@md/*": ["src/assets/md/*"],
       "@data/*": ["src/data/*"],
-      "@store/*": ["src/store/*"]
+      "@utils/*": ["src/utils/*"]
     }
+  },
+  "ts-node": {
+    "esm": true
   }
 }
